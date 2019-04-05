@@ -123,19 +123,21 @@ The zoo wants to display both the scientific name and the animal name in front o
 */
 const animalNames = [];
 
-
-zooAnimals.forEach(function() {
-  animalNames.push(`Name: ${zooAnimals.first_name} Scientific: ${zooAnimals.scientific_name}`);
-});
+// zooAnimals.forEach(function(current) {
+//   return animalNames.push(`Name: ${current.animal_name}, Scientific: ${current.scientific_name}`);
+// });
+zooAnimals.forEach(current => animalNames.push(`Name: ${current.animal_name}, Scientific: ${current.scientific_name}`)
+);
 console.log(animalNames);
 
 /* Request 2: .map()    
 
-The zoos need a list of all their animal's names (names only, not scientific) converted to lower case.  Create a new array named lowerCase and map over each name to convert them all to lower case.  Log the resut.
+The zoos need a list of all their animal's names (names only, not scientific) converted to lower case.  Create a new array named lowerCase and map over each name to convert them all to lower case.  Log the result.
 
 */
 
-const lowerCase = [];
+let lowerCase = [];
+lowerCase = zooAnimals.map(element => element.animal_name.toLowerCase());
 console.log(lowerCase); 
 
 /* Request 3: .filter() 
@@ -143,7 +145,8 @@ console.log(lowerCase);
 The zoos are concenred about animals with a lower population count. Find out which animals have a population less than 5.
 
 */
-const largerPopulation = [];
+let largerPopulation = [];
+largerPopulation = zooAnimals.filter(element => element.population < 5);
 console.log(largerPopulation);
 
 /* Request 4: .reduce() 
@@ -151,7 +154,12 @@ console.log(largerPopulation);
 The zoos need to know their total animal population across the United States.  Find the total population from all the zoos using the .reduce() method.
 
 */
-const populationTotal = 0;
+let populationTotal = 0;
+// populationTotal = zooAnimals.reduce(function(runningTotal, current) {
+//   return runningTotal + current.population; 
+// }, 0);
+
+populationTotal = zooAnimals.reduce((runningTotal, current) => runningTotal + current.population, 0);
 console.log(populationTotal);
 
 
