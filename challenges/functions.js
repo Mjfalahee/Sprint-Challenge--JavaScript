@@ -33,12 +33,11 @@ function consume (a, b, callback) {
  console.log(consume(10,16,multiply)); // 160
  console.log(consume("Mary","Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
 
-
 // ==== Closures ==== 
 
 // Explain in your own words why `nestedfunction()` can access the variable `internal`.
 
-// Explanation: 
+// Explanation: Because the variable is defined one level above it. Functions can reach outwards but not inwards so it's within reach. 
 
 
 const external = "I'm outside the function";
